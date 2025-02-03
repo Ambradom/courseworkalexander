@@ -1,16 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="org.example.courseworkalexander.HelloController">
-  <padding>
-    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-  </padding>
+<VBox maxHeight="-Infinity" maxWidth="-Infinity"
+      minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" spacing="20.0"
+      xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="org.example.courseworkalexander.MainController">
+    <padding>
+        <Insets topRightBottomLeft="10"/>
+    </padding>
+    <children>
+        <Label text="Промышленные предприятия"/>
+        <TableView fx:id="enterpriseTable" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="nameColumn" text="Название"/>
+                <TableColumn fx:id="addressColumn" text="Адрес"/>
+                <TableColumn fx:id="employeesColumn" text="Количество сотрудников"/>
+                <TableColumn fx:id="revenueColumn" text="Годовой доход"/>
+            </columns>
+        </TableView>
 
-  <Label fx:id="welcomeText"/>
-  <Button text="Hello!" onAction="#onHelloButtonClick"/>
+        <HBox spacing="10">
+            <children>
+                <TextField fx:id="nameField" promptText="Название"/>
+                <TextField fx:id="addressField" promptText="Адрес"/>
+                <TextField fx:id="employeesField" promptText="Сотрудники"/>
+                <TextField fx:id="revenueField" promptText="Доход"/>
+                <Button fx:id="addButton" text="Добавить" onAction="#handleAddButton"/>
+                <Button fx:id="editButton" text="Редактировать" onAction="#handleEditButton"/>
+                <Button fx:id="deleteButton" text="Удалить" onAction="#handleDeleteButton"/>
+            </children>
+        </HBox>
+
+        <HBox spacing="10">
+            <children>
+                <Label text="Добавить сотрудника"/>
+                <TextField fx:id="employeeNameField" promptText="Имя сотрудника"/>
+                <TextField fx:id="employeePositionField" promptText="Должность"/>
+                <Button text="Добавить сотрудника" onAction="#handleAddEmployeeButton"/>
+            </children>
+        </HBox>
+
+        <HBox spacing="10">
+            <children>
+                <Label text="Добавить продукт"/>
+                <TextField fx:id="productNameField" promptText="Название продукта"/>
+                <TextField fx:id="productPriceField" promptText="Цена"/>
+                <Button text="Добавить продукт" onAction="#handleAddProductButton"/>
+            </children>
+        </HBox>
+
+        <HBox spacing="10">
+            <children>
+                <Button text="Просмотреть сотрудников" onAction="#handleViewEmployeesButton"/>
+                <Button text="Просмотреть продукты" onAction="#handleViewProductsButton"/>
+            </children>
+        </HBox>
+    </children>
 </VBox>
